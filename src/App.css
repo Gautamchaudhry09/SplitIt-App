@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.input-box {
+  padding: 2px 4px;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  /* Add border to mimic Paper variant="outlined" */
+}
+
+.input {
+  margin-left: 1rem;
+  flex-grow: 1;
+  border: none;
+  /* Remove default input border */
+  outline: none;
+  /* Remove default input outline */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-friend-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
