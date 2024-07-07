@@ -100,7 +100,7 @@ export const AddExpenses = () => {
                 onChange={onFriendChange}
                 required
                 sx={{
-                  boxShadow: "1.5px 1.5px 5px black",
+                  boxShadow: "0.8px 0.8px 3px black",
                   bgcolor: "white",
                   borderRadius: "10px",
                 }}
@@ -125,7 +125,7 @@ export const AddExpenses = () => {
                 required
                 autoComplete="off"
                 sx={{
-                  boxShadow: "1.5px 1.5px 5px black",
+                  boxShadow: "0.8px 0.8px 3px black",
                   bgcolor: "white",
                   borderRadius: "10px",
                 }}
@@ -154,7 +154,7 @@ export const AddExpenses = () => {
             placeholder="Reason (optional)"
             type="text"
             sx={{
-              boxShadow: "1.5px 1.5px 5px black",
+              boxShadow: "0.8px 0.8px 3px black",
               bgcolor: "white",
               borderRadius: "10px",
             }}
