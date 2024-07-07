@@ -7,11 +7,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import { AccountContext } from "../AppContext/AppContext";
+import Avatar from "@mui/material/Avatar";
+
+const sxAvatar = { fontSize: "18px", fontWeight: "400" };
 
 export const FinalTxnList = ({ txns }) => {
-  const { friends, setFriends, transactions, setTransactions } =
-    useContext(AccountContext);
-
   const [checked, setChecked] = useState([]);
 
   const handleToggle = (value) => () => {
@@ -31,7 +31,16 @@ export const FinalTxnList = ({ txns }) => {
     <List>
       {txns.length ? (
         txns?.map((txn, idx) => (
-          <ListItem key={txn.id} disablePadding>
+          <ListItem
+            key={txn.id}
+            disablePadding
+            sx={{
+              boxShadow: "1.5px 1.5px 2px black",
+              bgcolor: "white",
+              borderRadius: "5px",
+              margin: "5px",
+            }}
+          >
             <ListItemButton
               //   role={undefined}
               onClick={handleToggle(txn)}
@@ -48,7 +57,42 @@ export const FinalTxnList = ({ txns }) => {
                 />
               </ListItemIcon>
               <ListItemText>
-                <b>{txn.from_friend.name}</b> gives <b>{txn.to_friend.name}</b>
+                <Avatar
+                  sx={{
+                    ...sxAvatar,
+                    backgroundColor: txn.from_friend.color.backgroundColor,
+                    color: txn.from_friend.color.color,
+                    height: "22px",
+                    width: "22px",
+                    boxSizing: "border-box",
+                    fontSize: "12px",
+                    display: "inline-block",
+                    margin: "5px",
+                    textAlign: "center",
+                    paddingTop: "4px",
+                  }}
+                >
+                  {txn.from_friend.initials}
+                </Avatar>
+                <b>{txn.from_friend.name}</b> gives
+                <Avatar
+                  sx={{
+                    ...sxAvatar,
+                    backgroundColor: txn.to_friend.color.backgroundColor,
+                    color: txn.to_friend.color.color,
+                    height: "22px",
+                    width: "22px",
+                    display: "inline-block",
+                    boxSizing: "border-box",
+                    margin: "5px",
+                    fontSize: "12px",
+                    textAlign: "center",
+                    paddingTop: "4px",
+                  }}
+                >
+                  {txn.to_friend.initials}
+                </Avatar>
+                <b>{txn.to_friend.name}</b>
                 {" ₹"}
                 {txn.amount}
               </ListItemText>

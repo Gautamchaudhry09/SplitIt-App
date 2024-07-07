@@ -15,6 +15,8 @@ const sxInputBox = {
   p: "2px 4px",
   mt: "1rem",
   display: "flex",
+  // border: "1px solid black",
+  boxShadow: "2px 2px 3px black",
   alignItems: "center",
   width: "100%",
 };
@@ -22,6 +24,7 @@ const sxInputBox = {
 const sxInput = {
   ml: 1,
   flexGrow: 1,
+  color: "black",
 };
 export const AddFriends = () => {
   const { friends, setFriends, transactions, setTransactions } =

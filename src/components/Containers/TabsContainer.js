@@ -60,8 +60,15 @@ export const TabsContainer = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: "background.paper", borderRadius: "65px" }}>
+    <Box
+      sx={{
+        bgcolor: "#f4dbd8",
+        borderRadius: "65px",
+        border: "1px solid black",
+      }}
+    >
       <Tabs
+        className="tab-panel"
         value={value}
         onChange={handleChange}
         indicatorColor="secondary"
@@ -69,27 +76,30 @@ export const TabsContainer = () => {
         variant="fullWidth"
         aria-label="full width tabs example"
         centered
-        sx={{ bgcolor: "orange", borderRadius: "20px" }}
+        sx={{
+          boxShadow: "0px 1px 2px black",
+          borderRadius: "20px",
+        }}
       >
         <Tab
           icon={<GroupAddIcon />}
           label="Friends"
           {...a11yProps(0)}
-          sx={{ fontSize: "12px" }}
+          sx={{ fontSize: "12px", color: "black" }}
           disableRipple
         />
         <Tab
           icon={<AddCardIcon />}
           label="Expenses"
           {...a11yProps(1)}
-          sx={{ fontSize: "12px" }}
+          sx={{ fontSize: "12px", color: "black" }}
           disableRipple
         />
         <Tab
           fontSize="small"
           icon={<AccountBalanceIcon />}
           label="Transaction Split"
-          sx={{ fontSize: "12px" }}
+          sx={{ fontSize: "12px", color: "black" }}
           {...a11yProps(2)}
           disableRipple
         />

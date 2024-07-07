@@ -99,6 +99,11 @@ export const AddExpenses = () => {
                 size="small"
                 onChange={onFriendChange}
                 required
+                sx={{
+                  boxShadow: "1.5px 1.5px 5px black",
+                  bgcolor: "white",
+                  borderRadius: "10px",
+                }}
               >
                 <MenuItem value="0">
                   <small>Friend</small>
@@ -119,13 +124,25 @@ export const AddExpenses = () => {
                 placeholder="Amount"
                 required
                 autoComplete="off"
+                sx={{
+                  boxShadow: "1.5px 1.5px 5px black",
+                  bgcolor: "white",
+                  borderRadius: "10px",
+                }}
               />
             </FormControl>
           </Grid>
 
           <Grid item xs textAlign="center">
             <IconButton type="submit">
-              <AddCircleIcon color="primary" />
+              <AddCircleIcon
+                color="primary"
+                sx={{
+                  boxShadow: "0px 0px 10px black",
+                  borderRadius: "15px",
+                  bgcolor: "#a8f1c3",
+                }}
+              />
             </IconButton>
           </Grid>
         </Grid>
@@ -136,6 +153,11 @@ export const AddExpenses = () => {
             size="small"
             placeholder="Reason (optional)"
             type="text"
+            sx={{
+              boxShadow: "1.5px 1.5px 5px black",
+              bgcolor: "white",
+              borderRadius: "10px",
+            }}
             onChange={onReasonChange}
           />
         </FormControl>

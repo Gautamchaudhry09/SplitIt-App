@@ -13,6 +13,7 @@ import {
   calculate_total,
 } from "../../Helpers/SplitCalculator";
 import { AccountContext } from "../AppContext/AppContext";
+import { Avatar, ListItemText } from "@mui/material";
 const Wrapper = styled(Paper)(() => ({
   borderRadius: 0,
   padding: "0.475rem",
@@ -71,7 +72,27 @@ export const FinalTxnSS = ({ setImageUrl }) => {
                 alignItems="center"
               >
                 <div>
-                  <Typography>{txn.friend.name} paid:</Typography>
+                  <Typography sx={{ position: "relative" }}>
+                    <Avatar
+                      sx={{
+                        backgroundColor: txn.friend.color.backgroundColor,
+                        color: txn.friend.color.color,
+                        height: "22px",
+                        width: "22px",
+                        boxSizing: "border-box",
+                        fontSize: "12px",
+                        display: "inline-block",
+                        marginRight: "5px",
+                        textAlign: "center",
+                        //   margin: "5px",
+                        paddingTop: "4px",
+                        // position: "relative",
+                      }}
+                    >
+                      {txn.friend.initials}
+                    </Avatar>
+                    {txn.friend.name} paid:
+                  </Typography>
                   {txn.reason && (
                     <Typography>
                       <small>({txn.reason})</small>
@@ -104,14 +125,49 @@ export const FinalTxnSS = ({ setImageUrl }) => {
       </Typography>
       <CList dense>
         {expenses &&
-          expenses.map((exp, index) => (
+          expenses.map((txn, index) => (
             <ListItem key={index + 1}>
               <Grid container justifyContent="space-between">
-                <span>
-                  {exp.from_friend.name} gives {exp.to_friend.name}:
-                </span>
+                <ListItemText>
+                  <Avatar
+                    sx={{
+                      backgroundColor: txn.from_friend.color.backgroundColor,
+                      color: txn.from_friend.color.color,
+                      height: "22px",
+                      width: "22px",
+                      boxSizing: "border-box",
+                      fontSize: "12px",
+                      display: "inline-block",
+                      marginRight: "5px",
+                      textAlign: "center",
+                      //   margin: "5px",
+                      paddingTop: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    {txn.from_friend.initials}
+                  </Avatar>
+                  <b>{txn.from_friend.name}</b> gives
+                  <Avatar
+                    sx={{
+                      backgroundColor: txn.to_friend.color.backgroundColor,
+                      color: txn.to_friend.color.color,
+                      height: "22px",
+                      width: "22px",
+                      display: "inline-block",
+                      boxSizing: "border-box",
+                      mx: "5px",
+                      fontSize: "12px",
+                      textAlign: "center",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {txn.to_friend.initials}
+                  </Avatar>
+                  <b>{txn.to_friend.name}</b>
+                </ListItemText>
                 {" ₹"}
-                {exp.amount}
+                {txn.amount}
               </Grid>
             </ListItem>
           ))}

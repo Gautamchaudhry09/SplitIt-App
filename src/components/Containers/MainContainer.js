@@ -1,8 +1,11 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { TabsContainer } from "./TabsContainer";
-
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import LightModeIcon from "@mui/icons-material/LightMode";
 export const MainContainer = () => {
+  const [invert, setInvert] = useState(0);
+
   return (
     <Box
       sx={{
@@ -17,7 +20,28 @@ export const MainContainer = () => {
         borderRadius: "10px",
       }}
     >
-      <TabsContainer />
+      {invert == 0 ? (
+        <>
+          <LightModeIcon
+            sx={{ cursor: "pointer" }}
+            onClick={() => setInvert(1)}
+          />
+        </>
+      ) : (
+        <>
+          <Brightness4Icon
+            sx={{ cursor: "pointer" }}
+            onClick={() => setInvert(0)}
+          />
+        </>
+      )}
+      <Box
+        sx={{
+          filter: `invert(${invert})`,
+        }}
+      >
+        <TabsContainer />
+      </Box>
     </Box>
   );
 };

@@ -65,6 +65,11 @@ export const FinalTxns = () => {
               size="small"
               onChange={onFriendChange}
               required
+              sx={{
+                boxShadow: "1.5px 1.5px 5px black",
+                bgcolor: "white",
+                borderRadius: "10px",
+              }}
             >
               <MenuItem value="0" key={0}>
                 <small>All Friends</small>
