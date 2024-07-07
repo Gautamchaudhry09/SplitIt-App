@@ -33,9 +33,7 @@ export const ExpnsEntryEdit = ({
 
   const onReasonUpdate = (e) => {
     const amt = e.target.value;
-    if (!Number(amt) || Number(amt) < 0) {
-      return alert("Invalid transaction amount");
-    }
+    
     setNewReason(amt);
   };
 
@@ -46,7 +44,7 @@ export const ExpnsEntryEdit = ({
   const onUpdateAmtSubmit = (e) => {
     e.preventDefault();
 
-    if (!newAmount || newAmount <= 0) {
+    if (!Number(newAmount) || Number(newAmount) <= 0) {
       return alert("Invalid amount. Please enter a valid amount.");
     }
 

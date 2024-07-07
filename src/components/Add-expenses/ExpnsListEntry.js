@@ -39,7 +39,7 @@ export const ExpnsListEntry = ({ txn }) => {
       transactions.map((transaction) => {
         if (txn.friend === transaction.friend) {
           transaction.amount = newAmount;
-          if (newReason) transaction.reason = newReason;
+          transaction.reason = newReason;
         }
         return transaction;
       })

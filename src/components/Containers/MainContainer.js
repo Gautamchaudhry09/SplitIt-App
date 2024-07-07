@@ -35,6 +35,7 @@ export const MainContainer = () => {
           />
         </>
       )}
+      
       <Box
         sx={{
           filter: `invert(${invert})`,

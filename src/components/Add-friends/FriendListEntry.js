@@ -25,6 +25,9 @@ export const FriendListEntry = ({ friend }) => {
       window.confirm("Are you sure? This will remove all transactions as well.")
     ) {
       setFriends(friends.filter((frnd) => friend.name !== frnd.name));
+      setTransactions(
+        transactions.filter((txn) => txn.friend.name !== friend.name)
+      );
     }
   };
 
