@@ -16,7 +16,7 @@ const sxAvatar = { fontSize: "18px", fontWeight: "400" };
 const sxForm = { display: "flex" };
 
 export const FriendListEntry = ({ friend }) => {
-  const { friends, setFriends } = useContext(AccountContext);
+  const { friends, setFriends,transactions,setTransactions } = useContext(AccountContext);
   const [editing, setEditing] = useState(false);
   const [newName, setNewName] = useState(friend.name);
 
