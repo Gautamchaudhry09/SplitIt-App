@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import { AccountContext } from "../AppContext/AppContext";
 import Avatar from "@mui/material/Avatar";
+import { Grid, Typography } from "@mui/material";
 
 const sxAvatar = { fontSize: "18px", fontWeight: "400" };
 
@@ -41,62 +42,55 @@ export const FinalTxnList = ({ txns }) => {
               margin: "5px",
             }}
           >
-            <ListItemButton
+            {/* <ListItemButton
               //   role={undefined}
+              sx={{ display: "inline" }}
               onClick={handleToggle(txn)}
               disableRipple
               dense
-            >
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={checked.indexOf(txn) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ "aria-labelledby": `paymentId-${txn.id}` }}
-                />
-              </ListItemIcon>
-              <ListItemText>
-                <Avatar
-                  sx={{
-                    ...sxAvatar,
-                    backgroundColor: txn.from_friend.color.backgroundColor,
-                    color: txn.from_friend.color.color,
-                    height: "22px",
-                    width: "22px",
-                    boxSizing: "border-box",
-                    fontSize: "12px",
-                    display: "inline-block",
-                    margin: "5px",
-                    textAlign: "center",
-                    paddingTop: "4px",
-                  }}
-                >
-                  {txn.from_friend.initials}
-                </Avatar>
-                <b>{txn.from_friend.name}</b> gives
-                <Avatar
-                  sx={{
-                    ...sxAvatar,
-                    backgroundColor: txn.to_friend.color.backgroundColor,
-                    color: txn.to_friend.color.color,
-                    height: "22px",
-                    width: "22px",
-                    display: "inline-block",
-                    boxSizing: "border-box",
-                    margin: "5px",
-                    fontSize: "12px",
-                    textAlign: "center",
-                    paddingTop: "4px",
-                  }}
-                >
-                  {txn.to_friend.initials}
-                </Avatar>
-                <b>{txn.to_friend.name}</b>
-                {" ₹"}
-                {txn.amount}
-              </ListItemText>
-            </ListItemButton>
+            > */}
+            <ListItemIcon sx={{ marginRight: "-20px" }}>
+              <Checkbox
+                edge="start"
+                sx={{ marginLeft: "5px" }}
+                checked={checked.indexOf(txn) !== -1}
+                tabIndex={-1}
+                disableRipple
+                inputProps={{ "aria-labelledby": `paymentId-${txn.id}` }}
+              />
+            </ListItemIcon>
+            {/* </ListItemButton> */}
+            <ListItemText>
+              <Grid
+                container
+                justifyContent="space-between"
+                alignItems="center"
+                sx={{ px: "15px" }}
+              >
+                <div>
+                  <Grid
+                    container
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{ px: "5px" }}
+                  >
+                    <Typography sx={{ display: "inline" }}>
+                      <b>{`${txn.from_friend.name} `} </b> gi
+                    </Typography>
+                    <Typography>
+                      <p> ve </p>
+                    </Typography>
+                    <Typography sx={{ display: "inline" }}>
+                      s <b>{txn.to_friend.name}</b>
+                    </Typography>
+                  </Grid>
+                </div>
+                <Typography>
+                  {"   ₹"}
+                  {txn.amount}
+                </Typography>
+              </Grid>
+            </ListItemText>
           </ListItem>
         ))
       ) : (
