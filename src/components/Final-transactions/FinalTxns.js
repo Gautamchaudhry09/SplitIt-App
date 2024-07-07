@@ -11,7 +11,8 @@ import { FinalTxnList } from "./FinalTxnList";
 import {
   SplitCalculator,
   calculate_total,
-} from "../../SplitCalculator/SplitCalculator";
+} from "../../Helpers/SplitCalculator";
+import { FinalTxnReceipt } from "./FinalTxnReceipt";
 
 export const FinalTxns = () => {
   const { friends, transactions } = useContext(AccountContext);
@@ -79,7 +80,7 @@ export const FinalTxns = () => {
         {filteredTxns && <FinalTxnList txns={filteredTxns} />}
         {total ? (
           <p>
-            Total:{" "}
+            Total:{" ₹"}
             <b>
               <em>{total}</em>
             </b>
@@ -87,9 +88,9 @@ export const FinalTxns = () => {
         ) : null}
       </Box>
 
-      {/* <React.Suspense fallback={<div>Loading...</div>}>
-        <PaymentsShare isOpen={share} closeModal={() => setShare(false)} />
-      </React.Suspense> */}
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <FinalTxnReceipt isOpen={share} closeModal={() => setShare(false)} />
+      </React.Suspense>
     </>
   );
 };
