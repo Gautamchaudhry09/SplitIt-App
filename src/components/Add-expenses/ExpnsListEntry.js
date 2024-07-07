@@ -37,7 +37,7 @@ export const ExpnsListEntry = ({ txn }) => {
     // updateTxn(txn, amount, reason);
     setTransactions((transactions) =>
       transactions.map((transaction) => {
-        if (txn.friend === transaction.friend) {
+        if (txn === transaction) {
           transaction.amount = newAmount;
           transaction.reason = newReason;
         }
