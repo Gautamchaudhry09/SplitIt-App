@@ -24,7 +24,11 @@ export const ExpensesList = () => {
         <Table stickyHeader aria-label="sticky table">
           <TableBody>
             {transactions.map((transaction, index) => (
-              <TableRow hover key={index}>
+              <TableRow
+                hover
+                key={index}
+                sx={{ boxShadow: "1.5px 1.5px 2px black" }}
+              >
                 <UITableCell align="left">
                   <ExpnsListEntry txn={transaction} />
                   <Divider sx={{ marginTop: "7px" }} />
