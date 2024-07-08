@@ -78,7 +78,7 @@ export const FinalTxnList = ({ txns }) => {
                       <b>{`${txn.from_friend.name} `} </b>
                     </Typography>
                     <Typography>
-                      <p> gives </p>
+                      <p> -> gives -></p>
                     </Typography>
                     <Typography sx={{ display: "inline" }}>
                        <b>{txn.to_friend.name}</b>
