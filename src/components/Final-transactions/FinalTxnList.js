@@ -75,13 +75,13 @@ export const FinalTxnList = ({ txns }) => {
                     sx={{ px: "5px" }}
                   >
                     <Typography sx={{ display: "inline" }}>
-                      <b>{`${txn.from_friend.name} `} </b> gi
+                      <b>{`${txn.from_friend.name} `} </b>
                     </Typography>
                     <Typography>
-                      <p> ve </p>
+                      <p> gives </p>
                     </Typography>
                     <Typography sx={{ display: "inline" }}>
-                      s <b>{txn.to_friend.name}</b>
+                       <b>{txn.to_friend.name}</b>
                     </Typography>
                   </Grid>
                 </div>
