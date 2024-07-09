@@ -1,19 +1,30 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import React from "react";
 
 export const AccountContext = createContext(null);
 
 export const AccountProvider = ({ children }) => {
-  const [friends, setFriends] = useState([]);
-  const [transactions, setTransactions] = useState([]);
+  // Initialize state from local storage
+  const [friends, setFriends] = useState(() => {
+    const savedFriends = localStorage.getItem("friends");
+    return savedFriends ? JSON.parse(savedFriends) : [];
+  });
+
+  const [transactions, setTransactions] = useState(() => {
+    const savedTransactions = localStorage.getItem("transactions");
+    return savedTransactions ? JSON.parse(savedTransactions) : [];
+  });
+
+  // Use useEffect to save friends to local storage whenever it changes
   useEffect(() => {
-    localStorage.setItem(transactions, transactions);
-    localStorage.setItem(friends, friends);
-  }, [friends, transactions]);
-  // useEffect(() => {
-  //   setTransactions(localStorage.getItem(transactions));
-  //   setFriends(localStorage.getItem(friends));
-  // }, []);
+    localStorage.setItem("friends", JSON.stringify(friends));
+  }, [friends]);
+
+  // Use useEffect to save transactions to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
+
   return (
     <AccountContext.Provider
       value={{
