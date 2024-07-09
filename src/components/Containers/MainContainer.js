@@ -1,10 +1,26 @@
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TabsContainer } from "./TabsContainer";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import RotateLeftIcon from "@mui/icons-material/RotateLeft";
+import { AccountContext } from "../AppContext/AppContext";
+
 export const MainContainer = () => {
+  const { setFriends, setTransactions } = useContext(AccountContext);
   const [invert, setInvert] = useState(0);
+
+  const reset = () => {
+    if (
+      window.confirm(
+        "Are You Sure? All data will be reset and everything will be erased"
+      )
+    ) {
+      setFriends([]);
+      setTransactions([]);
+      localStorage.clear();
+    }
+  };
 
   return (
     <Box
@@ -35,7 +51,8 @@ export const MainContainer = () => {
           />
         </>
       )}
-      
+      <RotateLeftIcon sx={{ cursor: "pointer" }} onClick={reset} />
+
       <Box
         sx={{
           filter: `invert(${invert})`,
