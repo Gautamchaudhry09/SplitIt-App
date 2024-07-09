@@ -96,7 +96,9 @@ export const FinalTxnSS = ({ setImageUrl }) => {
                       >
                         {txn.friend.initials}
                       </Avatar>
-                      {txn.friend.name} paid:
+                      <p>
+                        <b>{`${txn.friend.name} `}</b> paid:
+                      </p>
                     </Grid>
                   </Typography>
                   {txn.reason && (
@@ -134,60 +136,24 @@ export const FinalTxnSS = ({ setImageUrl }) => {
           expenses.map((txn, index) => (
             <>
               <ListItem key={index + 1}>
-                <Grid container justifyContent="space-between">
-                  <div>
-                    <Typography>
-                      <Grid
-                        container
-                        justifyContent="space-between"
-                        alignItems="center"
-                      >
-                        <Avatar
-                          sx={{
-                            backgroundColor:
-                              txn.from_friend.color.backgroundColor,
-                            color: txn.from_friend.color.color,
-                            height: "22px",
-                            width: "22px",
-                            boxSizing: "border-box",
-                            fontSize: "12px",
-                            display: "inline-block",
-                            marginRight: "5px",
-                            textAlign: "center",
-                            //   margin: "5px",
-                            paddingTop: "4px",
-                            position: "relative",
-                          }}
-                        >
-                          {txn.from_friend.initials}
-                        </Avatar>
-                        <b>{txn.from_friend.name}</b>
-                        <Typography sx={{ marginLeft: "5px" }}>
-                          gives{" "}
-                        </Typography>
-                        <Avatar
-                          sx={{
-                            backgroundColor:
-                              txn.to_friend.color.backgroundColor,
-                            color: txn.to_friend.color.color,
-                            height: "22px",
-                            width: "22px",
-                            display: "inline-block",
-                            boxSizing: "border-box",
-                            mx: "5px",
-                            fontSize: "12px",
-                            textAlign: "center",
-                            paddingTop: "4px",
-                          }}
-                        >
-                          {txn.to_friend.initials}
-                        </Avatar>
-                        <b>{txn.to_friend.name}</b>
-                      </Grid>
-                    </Typography>
-                  </div>
-                  {" ₹"}
-                  {txn.amount}
+                <Grid
+                  container
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ px: "15px" }}
+                >
+                  <Typography>
+                    <p>
+                      <b> {`${txn.from_friend.name} `} </b>
+                      {`gives`}
+                      <b>{` ${txn.to_friend.name}`}</b>
+                    </p>
+                  </Typography>
+
+                  <Typography>
+                    {"   ₹"}
+                    {txn.amount}
+                  </Typography>
                 </Grid>
               </ListItem>
               <Divider sx={{ my: "5px" }} />

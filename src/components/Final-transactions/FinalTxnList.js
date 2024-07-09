@@ -67,24 +67,11 @@ export const FinalTxnList = ({ txns }) => {
                 alignItems="center"
                 sx={{ px: "15px" }}
               >
-                <div>
-                  <Grid
-                    container
-                    justifyContent="space-between"
-                    alignItems="center"
-                    sx={{ px: "5px" }}
-                  >
-                    <Typography sx={{ display: "inline" }}>
-                      <b>{`${txn.from_friend.name} `} </b>
-                    </Typography>
-                    <Typography>
-                      <p> -> gives -></p>
-                    </Typography>
-                    <Typography sx={{ display: "inline" }}>
-                       <b>{txn.to_friend.name}</b>
-                    </Typography>
-                  </Grid>
-                </div>
+                <p>
+                  <b>{`${txn.from_friend.name} `} </b>
+                  {`gives`}
+                  <b>{` ${txn.to_friend.name}`}</b>
+                </p>
                 <Typography>
                   {"   ₹"}
                   {txn.amount}
