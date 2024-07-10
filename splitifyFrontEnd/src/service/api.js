@@ -1,7 +1,7 @@
 import axios from "axios";
 import { json } from "react-router-dom";
 
-const url = "http://localhost:8000";
+const url = "https://splitit-app.onrender.com";
 export const registerUser = async (data) => {
   try {
     await axios.post(`${url}/addUser`, data);
