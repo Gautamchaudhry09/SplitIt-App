@@ -5,6 +5,11 @@ html {
   margin: 0;
 }
 
+.body {
+  overflow-y: scroll;
+  /* Always show scrollbar */
+}
+
 #root {
   height: 100%;
 }
@@ -16,12 +21,12 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: hidden;
-    position: fixed;
+  position: fixed;
   width: 100%;
   z-index: -1;
 }
 
-.main-container{
+.main-container {
   height: 1000px;
   display: none;
 }
@@ -55,6 +60,6 @@ html {
   cursor: pointer;
 }
 
-.tab-panel{
+.tab-panel {
   background-color: #f6adad;
 }
