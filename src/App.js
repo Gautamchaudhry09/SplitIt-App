@@ -10,11 +10,17 @@ import { Expenses } from "./components/Add-expenses/Expenses";
 import { FinalTxns } from "./components/Final-transactions/FinalTxns";
 import { TabsContainer } from "./components/Containers/TabsContainer";
 import { MainContainer } from "./components/Containers/MainContainer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Login } from "./components/Pages/Login";
+import { Register } from "./components/Pages/Register";
+import { useEffect } from "react";
 
 function App() {
   return (
     <AccountProvider>
-      <MainContainer />
+      <Router>
+        <MainContainer />
+      </Router>
     </AccountProvider>
   );
 }

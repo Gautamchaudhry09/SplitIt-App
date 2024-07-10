@@ -74,7 +74,10 @@ export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
             alignItems="center"
             justifyContent="space-between"
           >
-            <IconButton onClick={handleDownloadImage} disabled={downloading}>
+            <IconButton
+              onClick={() => handleDownloadImage()}
+              disabled={downloading}
+            >
               <DownloadIcon />
             </IconButton>
             <IconButton disabled={true}>

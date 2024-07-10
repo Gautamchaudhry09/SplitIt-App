@@ -111,7 +111,11 @@ export const AddFriends = () => {
           sx={sxInput}
           placeholder="Add friend"
         />
-        <Button type="button" onClick={onAddFriendEvent} aria-label="search">
+        <Button
+          type="button"
+          onClick={() => onAddFriendEvent()}
+          aria-label="search"
+        >
           <Box fontSize="1.2rem">+</Box>
         </Button>
       </Paper>

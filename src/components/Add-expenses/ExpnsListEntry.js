@@ -85,7 +85,7 @@ export const ExpnsListEntry = ({ txn }) => {
           <IconButton onClick={() => startEditing()}>
             <EditIcon />
           </IconButton>
-          <IconButton onClick={onTxnRemove}>
+          <IconButton onClick={() => onTxnRemove()}>
             <DeleteIcon />
           </IconButton>
         </Grid>

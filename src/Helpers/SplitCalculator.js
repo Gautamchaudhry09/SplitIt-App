@@ -3,7 +3,7 @@ import { AccountContext } from "../components/AppContext/AppContext";
 
 export const calculate_total = (expenses) => {
   let total = 0;
-  for (let i = 0; i < expenses.length; i++) {
+  for (let i = 0; i < expenses?.length; i++) {
     total += Number(expenses[i].amount);
   }
   //   console.log(total);

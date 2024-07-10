@@ -42,13 +42,6 @@ export const FinalTxnList = ({ txns }) => {
               margin: "5px",
             }}
           >
-            {/* <ListItemButton
-              //   role={undefined}
-              sx={{ display: "inline" }}
-              onClick={handleToggle(txn)}
-              disableRipple
-              dense
-            > */}
             <ListItemIcon sx={{ marginRight: "-20px" }}>
               <Checkbox
                 edge="start"
@@ -59,7 +52,7 @@ export const FinalTxnList = ({ txns }) => {
                 inputProps={{ "aria-labelledby": `paymentId-${txn.id}` }}
               />
             </ListItemIcon>
-            {/* </ListItemButton> */}
+
             <ListItemText>
               <Grid
                 container

@@ -66,7 +66,7 @@ export const AddExpenses = () => {
       },
     ]);
     setTxnAmount("");
-
+    setReason("");
     // amtInputRef.current?.focus();
     // amtInputRef.current?.select(); // it may not work on safari mobile
   };

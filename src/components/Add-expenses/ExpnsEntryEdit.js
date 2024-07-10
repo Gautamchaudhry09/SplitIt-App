@@ -72,7 +72,7 @@ export const ExpnsEntryEdit = ({
               <IconButton type="submit">
                 <Check />
               </IconButton>
-              <IconButton onClick={onUpdateAmtCancel}>
+              <IconButton onClick={() => onUpdateAmtCancel()}>
                 <Clear />
               </IconButton>
             </Grid>
