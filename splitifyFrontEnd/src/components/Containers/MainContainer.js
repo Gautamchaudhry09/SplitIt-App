@@ -97,6 +97,7 @@ export const MainContainer = () => {
 
   const handleLogOut = () => {
     setUser("");
+    setAtHome(1);
     setIsSaved(0);
   };
 
