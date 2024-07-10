@@ -1,15 +1,35 @@
-.App {
-  text-align: center;
+/* App.css */
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 
-.input-box {
-  padding: 2px 4px;
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
+#root {
+  height: 100%;
+}
+
+.background {
+  background-image: url('https://previews.123rf.com/images/ballabeyla/ballabeyla1707/ballabeyla170700349/81705586-fruit-tree-flowers-on-white-wooden-background.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: hidden;
+    position: fixed;
   width: 100%;
-  border: 1px solid #ccc;
-  /* Add border to mimic Paper variant="outlined" */
+  z-index: -1;
+}
+
+.main-container{
+  height: 1000px;
+  display: none;
+}
+
+.app-content {
+  overflow-y: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .input {
