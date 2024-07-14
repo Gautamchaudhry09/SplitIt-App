@@ -19,12 +19,8 @@ export const ExpnsListEntry = ({ txn }) => {
   const onTxnRemove = (e) => {
     e.preventDefault();
 
-    if (window.confirm("Are you sure?")) {
-      //   removeTxn(txn.id);
-      setTransactions(
-        transactions.filter((transaction) => transaction !== txn)
-      );
-    }
+    //   removeTxn(txn.id);
+    setTransactions(transactions.filter((transaction) => transaction !== txn));
   };
 
   const startEditing = () => {
@@ -85,7 +81,7 @@ export const ExpnsListEntry = ({ txn }) => {
           <IconButton onClick={() => startEditing()}>
             <EditIcon />
           </IconButton>
-          <IconButton onClick={() => onTxnRemove()}>
+          <IconButton onClick={(event) => onTxnRemove(event)}>
             <DeleteIcon />
           </IconButton>
         </Grid>

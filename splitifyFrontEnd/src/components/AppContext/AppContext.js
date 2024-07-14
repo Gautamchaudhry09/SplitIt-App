@@ -28,7 +28,7 @@ export const AccountProvider = ({ children }) => {
 
   const [invert, setInvert] = useState(() => {
     const savedInvert = localStorage.getItem("invert");
-    return savedInvert ? savedInvert : 0;
+    return savedInvert ? savedInvert : 1;
   });
 
   const [isSaved, setIsSaved] = useState(() => {

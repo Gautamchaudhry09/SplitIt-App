@@ -8,7 +8,15 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import { AccountContext } from "../AppContext/AppContext";
 import Avatar from "@mui/material/Avatar";
-import { Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Paper,
+  Table,
+  TableBody,
+  TableContainer,
+  Typography,
+} from "@mui/material";
 
 const sxAvatar = { fontSize: "18px", fontWeight: "400" };
 
@@ -29,55 +37,65 @@ export const FinalTxnList = ({ txns }) => {
   };
 
   return (
-    <List>
-      {txns.length ? (
-        txns?.map((txn, idx) => (
-          <ListItem
-            key={txn.id}
-            disablePadding
-            sx={{
-              boxShadow: "1.5px 1.5px 2px black",
-              bgcolor: "white",
-              borderRadius: "5px",
-              margin: "5px",
-            }}
-          >
-            <ListItemIcon sx={{ marginRight: "-20px" }}>
-              <Checkbox
-                edge="start"
-                sx={{ marginLeft: "5px" }}
-                checked={checked.indexOf(txn) !== -1}
-                tabIndex={-1}
-                disableRipple
-                inputProps={{ "aria-labelledby": `paymentId-${txn.id}` }}
-              />
-            </ListItemIcon>
+    <Paper sx={{ width: "100%", marginY: "20px" }}>
+      <TableContainer sx={{ maxHeight: "51vh", overflowX: "hidden" }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableBody>
+            <List>
+              {txns.length ? (
+                txns?.map((txn, idx) => (
+                  <ListItem
+                    key={txn.id}
+                    disablePadding
+                    sx={{
+                      boxShadow: "1.5px 1.5px 2px black",
+                      bgcolor: "white",
+                      borderRadius: "5px",
+                      margin: "5px",
+                    }}
+                  >
+                    <ListItemIcon sx={{ marginRight: "-20px" }}>
+                      <Checkbox
+                        edge="start"
+                        sx={{ marginLeft: "5px" }}
+                        checked={checked.indexOf(txn) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{
+                          "aria-labelledby": `paymentId-${txn.id}`,
+                        }}
+                      />
+                    </ListItemIcon>
 
-            <ListItemText>
-              <Grid
-                container
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{ px: "15px" }}
-              >
-                <p>
-                  <b>{`${txn.from_friend.name} `} </b>
-                  {`gives`}
-                  <b>{` ${txn.to_friend.name}`}</b>
+                    <ListItemText>
+                      <Grid
+                        container
+                        justifyContent="space-between"
+                        alignItems="center"
+                        sx={{ px: "15px" }}
+                      >
+                        <p>
+                          <b>{`${txn.from_friend.name} `} </b>
+                          {`gives`}
+                          <b>{` ${txn.to_friend.name}`}</b>
+                        </p>
+                        <Typography>
+                          {"   ₹"}
+                          {txn.amount}
+                        </Typography>
+                      </Grid>
+                    </ListItemText>
+                  </ListItem>
+                ))
+              ) : (
+                <p style={{ padding: "10px" }}>
+                  <b>No payments</b>
                 </p>
-                <Typography>
-                  {"   ₹"}
-                  {txn.amount}
-                </Typography>
-              </Grid>
-            </ListItemText>
-          </ListItem>
-        ))
-      ) : (
-        <p>
-          <b>No payments</b>
-        </p>
-      )}
-    </List>
+              )}
+            </List>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };

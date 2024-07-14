@@ -20,7 +20,7 @@ export const FriendList = () => {
   return (
     <div>
       <Paper sx={{ width: "100%" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer sx={{ maxHeight: "58vh" }}>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
               {friends.map((friend, index) => (

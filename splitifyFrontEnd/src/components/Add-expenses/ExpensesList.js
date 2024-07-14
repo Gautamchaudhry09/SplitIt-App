@@ -20,7 +20,7 @@ export const ExpensesList = () => {
 
   return (
     <Paper sx={{ width: "100%" }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: "43.45vh" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableBody>
             {transactions.map((transaction, index) => (

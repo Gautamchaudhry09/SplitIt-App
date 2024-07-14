@@ -1,6 +1,5 @@
 /* App.css */
-body,
-html {
+body {
   height: 100%;
   margin: 0;
 }
@@ -15,16 +14,15 @@ html {
 }
 
 .background {
-  /* // background-image: url(''); */
-  background-color: rgb(37, 19, 19);
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-y: hidden;
+  /* background-image: url('https://previews.123rf.com/images/ballabeyla/ballabeyla1707/ballabeyla170700349/81705586-fruit-tree-flowers-on-white-wooden-background.jpg'); */
+  /* height: 100%; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover/; */
+  /* overflow-y: hidden; */
   position: fixed;
-  width: 100%;
-  z-index: -1;
+  /* width: 100%; */
+  /* z-index: -1; */
 }
 
 .main-container {

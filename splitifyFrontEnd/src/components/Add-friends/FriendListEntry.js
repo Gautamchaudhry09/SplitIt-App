@@ -52,6 +52,16 @@ export const FriendListEntry = ({ friend }) => {
       });
       return uFriends;
     });
+    setTransactions((transactions) => {
+      const newTransactions = transactions.map((txn) => {
+        if (txn.friend.name === friend.name) {
+          txn.friend.name = trimmedNewName;
+        }
+        console.log(txn);
+        return txn;
+      });
+      return newTransactions;
+    });
     // setNewName(trimmedNewName); // change untrimmed newName as well (`   x` to `x`)
     setEditing(false);
   };

@@ -71,9 +71,15 @@ export const OccasionsMenu = () => {
   };
 
   const handleOccClick = (occasion) => {
-    setAnchorEl(null);
-    setTransactions(occasion.transactions);
-    setFriends(occasion.friends);
+    if (
+      window.confirm(
+        "Make sure you've saved the current split otherwise it'll be lost"
+      )
+    ) {
+      setAnchorEl(null);
+      setTransactions(occasion.transactions);
+      setFriends(occasion.friends);
+    }
   };
 
   const handleDeleteOccasion = async (occasion) => {

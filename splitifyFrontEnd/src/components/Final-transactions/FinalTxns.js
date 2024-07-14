@@ -53,7 +53,7 @@ export const FinalTxns = () => {
 
   return (
     <>
-      <Box>
+      <Box sx={{ margin: "20px" }}>
         <Box display="flex" justifyContent="space-between">
           <IconButton onClick={() => setShare(true)} disabled={share}>
             <ShareIcon />
