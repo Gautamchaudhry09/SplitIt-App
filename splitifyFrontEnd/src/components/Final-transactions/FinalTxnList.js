@@ -47,11 +47,12 @@ export const FinalTxnList = ({ txns }) => {
                   <ListItem
                     key={txn.id}
                     disablePadding
-                  onClick={()=>handleToggle(txn)}
+                  onClick={handleToggle(txn)}
                     sx={{
                       boxShadow: "1.5px 1.5px 2px black",
                       bgcolor: "white",
                       borderRadius: "5px",
+                      cursor:"pointer",
                       margin: "5px",
                     }}
                   >
