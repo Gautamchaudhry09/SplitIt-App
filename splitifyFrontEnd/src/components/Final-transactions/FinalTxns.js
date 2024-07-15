@@ -63,13 +63,13 @@ export const FinalTxns = () => {
         }}
       >
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <IconButton
-            onClick={() => setShare(true)}
-            disabled={share}
-            sx={{ color: "#66CCCC" }}
-          >
-            <ShareIcon />
-          </IconButton>
+          // <IconButton
+          //   onClick={() => setShare(true)}
+          //   disabled={share}
+          //   sx={{ color: "#66CCCC" }}
+          // >
+          //   <ShareIcon />
+          // </IconButton>
           <FormControl size="small">
             <TextField
               value={String(friend ?? "0")}
