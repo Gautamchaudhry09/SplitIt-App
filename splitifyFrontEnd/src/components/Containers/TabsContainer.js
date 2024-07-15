@@ -62,44 +62,67 @@ export const TabsContainer = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#f4dbd8",
-        borderRadius: "65px",
-        border: "1px solid black",
+        bgcolor: "#000000", 
+        borderRadius: "20px",
+        border: "1px solid #66CCCC", 
+        boxShadow: "0 0 20px #66CCCC", 
+        padding: "20px",
       }}
     >
       <Tabs
-        className="tab-panel"
         value={value}
         onChange={handleChange}
         indicatorColor="secondary"
-        textColor="primary"
+        textColor="inherit"
         variant="fullWidth"
         aria-label="full width tabs example"
         centered
         sx={{
           boxShadow: "0px 1px 2px black",
           borderRadius: "20px",
+          bgcolor: "#333333",
         }}
       >
         <Tab
           icon={<GroupAddIcon />}
           label="Friends"
           {...a11yProps(0)}
-          sx={{ fontSize: "12px", color: "black" }}
+          sx={{
+            fontSize: "14px",
+            color: "#FF69B4",
+            "&:hover": {
+              color: "#FF69B4", 
+              textShadow: "0 0 10px #FF69B4",
+            },
+          }}
           disableRipple
         />
         <Tab
           icon={<AddCardIcon />}
           label="Expenses"
           {...a11yProps(1)}
-          sx={{ fontSize: "12px", color: "black" }}
+          sx={{
+            fontSize: "14px",
+            color: "#33CC33", 
+            "&:hover": {
+              color: "#33CC33",
+              textShadow: "0 0 10px #33CC33", 
+            },
+          }}
           disableRipple
         />
         <Tab
           fontSize="small"
           icon={<AccountBalanceIcon />}
           label="Transaction Split"
-          sx={{ fontSize: "12px", color: "black" }}
+          sx={{
+            fontSize: "14px",
+            color: "#66CCCC",
+            "&:hover": {
+              color: "#66CCCC", 
+              textShadow: "0 0 10px #66CCCC", 
+            },
+          }}
           {...a11yProps(2)}
           disableRipple
         />

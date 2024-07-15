@@ -104,13 +104,15 @@ export const MainContainer = () => {
     <Box
       sx={{
         maxWidth: "1000px",
-        height: "97vh",
+        height: "100vh",
         mx: "auto",
         padding: "10px",
-        bgcolor: "grey",
-        border: "1px solid black",
+        bgcolor: "#000000",
+        border: "2px solid #66CCCC",
         overflowX: "hidden",
-        boxShadow: "3px 3px 10px black",
+        boxShadow: "0px 0px 15px #66CCCC",
+        borderRadius: "10px",
+        color: "#FFFFFF",
       }}
     >
       <Grid
@@ -120,23 +122,10 @@ export const MainContainer = () => {
         sx={{ flexWrap: "nowrap" }}
       >
         <Grid item>
-          <Grid container direction="column" alignItems="flex-start">
-            {invert === 0 ? (
-              <LightModeIcon
-                sx={{ cursor: "pointer", margin: "5px" }}
-                onClick={() => setInvert(1)}
-              />
-            ) : (
-              <Brightness4Icon
-                sx={{ cursor: "pointer", margin: "5px" }}
-                onClick={() => setInvert(0)}
-              />
-            )}
-            <RotateLeftIcon
-              sx={{ cursor: "pointer", margin: "5px" }}
-              onClick={() => reset()}
-            />
-          </Grid>
+          <RotateLeftIcon
+            sx={{ cursor: "pointer", margin: "12px", color: "#FF69B4" }}
+            onClick={() => reset()}
+          />
         </Grid>
         <Grid item>
           {user && (
@@ -147,7 +136,7 @@ export const MainContainer = () => {
         </Grid>
         <Grid item>
           <IconButton onClick={() => setDrawerOpen(true)}>
-            <MenuIcon />
+            <MenuIcon sx={{ color: "#FF69B4" }} />
           </IconButton>
         </Grid>
       </Grid>
@@ -156,6 +145,14 @@ export const MainContainer = () => {
         anchor="right"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            bgcolor: "#333333",
+            color: "#FFFFFF",
+            border: "2px solid #66CCCC",
+            boxShadow: "0px 0px 10px #66CCCC",
+          },
+        }}
       >
         <Box
           sx={{ width: 250 }}
@@ -166,19 +163,36 @@ export const MainContainer = () => {
           <List>
             {!user ? (
               <>
-                {Number(atHome) ? null : (
-                  <ListItem button component="a" href="/">
+                {Number(atHome) == 1 ? (
+                  <></>
+                ) : (
+                  <ListItem
+                    button
+                    component="a"
+                    href="/"
+                    onClick={setAtHome(1)}
+                  >
                     <ListItemButton>
                       <ListItemText primary="Home" />
                     </ListItemButton>
                   </ListItem>
                 )}
-                <ListItem button component="a" href="/login">
+                <ListItem
+                  button
+                  component="a"
+                  href="/login"
+                  onClick={setAtHome(0)}
+                >
                   <ListItemButton>
                     <ListItemText primary="Login" />
                   </ListItemButton>
                 </ListItem>
-                <ListItem button component="a" href="/register">
+                <ListItem
+                  button
+                  component="a"
+                  href="/register"
+                  onClick={setAtHome(0)}
+                >
                   <ListItemButton>
                     <ListItemText primary="Register" />
                   </ListItemButton>
@@ -216,17 +230,17 @@ export const MainContainer = () => {
         }}
       />
 
-      <Box
+      {/* <Box
         sx={{
-          filter: `invert(${invert})`,
+          filter: invert === 0 ? "none" : "invert(1)",
         }}
-      >
-        <Routes>
-          <Route exact path="/" element={<TabsContainer />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </Box>
+      > */}
+      <Routes>
+        <Route exact path="/" element={<TabsContainer />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      {/* </Box> */}
     </Box>
   );
 };

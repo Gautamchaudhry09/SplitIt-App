@@ -1,16 +1,18 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  Typography,
+  Box,
+  Divider,
+} from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import EditIcon from "@mui/icons-material/Edit";
-import Divider from "@mui/material/Divider";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { AccountContext } from "../AppContext/AppContext";
-import { useContext } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { AccountContext } from "../AppContext/AppContext";
 import { deleteOccasion } from "../../service/api";
-import { Box, Typography } from "@mui/material";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -35,7 +37,7 @@ const StyledMenu = styled((props) => (
         ? "rgb(55, 65, 81)"
         : theme.palette.grey[300],
     boxShadow:
-      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
+      "0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
     "& .MuiMenu-list": {
       padding: "4px 0",
     },
@@ -56,14 +58,15 @@ const StyledMenu = styled((props) => (
 }));
 
 export const OccasionsMenu = () => {
-  const { occasions, setOccasions, user, setTransactions, setFriends } =
+  const { occasions, setOccasions, setTransactions, setFriends } =
     useContext(AccountContext);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = (occasion) => {
     setAnchorEl(null);
     // setTransactions(occasion.transactions);
@@ -98,13 +101,17 @@ export const OccasionsMenu = () => {
         id="demo-customized-button"
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
-        // color="success"
-        sx={{ margin: "10px" }}
         aria-expanded={open ? "true" : undefined}
         variant="contained"
-        // disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{
+          bgcolor: "#FF69B4", 
+          color: "#000000",
+          "&:hover": {
+            bgcolor: "#FF69B4", 
+          },
+        }}
       >
         Saved Splits
       </Button>
@@ -117,25 +124,33 @@ export const OccasionsMenu = () => {
         open={open}
         onClose={handleClose}
       >
-        {occasions && occasions.length == 0 ? (
+        {occasions && occasions.length === 0 ? (
           <MenuItem disableRipple>
             <Typography>No Saved Splits :)</Typography>
             <Divider sx={{ my: 0.5 }} />
           </MenuItem>
         ) : (
-          <></>
-        )}
-        {occasions &&
           occasions.map((occasion) => (
-            <MenuItem onClick={() => handleOccClick(occasion)} disableRipple>
-              <EditIcon />
-              {occasion.name}
-              <Box sx={{ marginLeft: "auto", cursor: "" }}>
+            <MenuItem
+              key={occasion._id}
+              onClick={() => handleOccClick(occasion)}
+              disableRipple
+              sx={{
+                "&:hover": {
+                  bgcolor: "#66CCCC", 
+                },
+              }}
+            >
+              <EditIcon sx={{ color: "#FF69B4", marginRight: "8px" }} />{" "}
+              {/* Neon Pink icon */}
+              <Typography>{occasion.name}</Typography>
+              <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
                   sx={{
+                    color: "#FF69B4", 
                     "&:hover": {
-                      boxShadow: "0 0 10px rgba(255, 0, 0, 0.5)", // red glow effect
+                      boxShadow: "0 0 10px rgba(255, 0, 0, 0.5)",
                       transition: "box-shadow 0.3s ease-in-out",
                     },
                   }}
@@ -143,7 +158,8 @@ export const OccasionsMenu = () => {
               </Box>
               <Divider sx={{ my: 0.5 }} />
             </MenuItem>
-          ))}
+          ))
+        )}
       </StyledMenu>
     </div>
   );

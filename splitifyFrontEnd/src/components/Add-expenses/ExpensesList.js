@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -16,22 +15,30 @@ const UITableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 export const ExpensesList = () => {
-  const { transactions, setTransactions } = useContext(AccountContext);
+  const { transactions } = useContext(AccountContext);
 
   return (
-    <Paper sx={{ width: "100%" }}>
-      <TableContainer sx={{ maxHeight: "43.45vh" }}>
+    <Paper
+      sx={{
+        width: "100%",
+        backgroundColor: "#333",
+        color: "#66CCCC",
+        borderRadius: 2,
+        boxShadow: "0 0 10px #66CCCC",
+      }}
+    >
+      <TableContainer sx={{ maxHeight: "42.8vh" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableBody>
             {transactions.map((transaction, index) => (
               <TableRow
                 hover
                 key={index}
-                sx={{ boxShadow: "1.5px 1.5px 2px black" }}
+                sx={{ boxShadow: "1.5px 1.5px 2px #66CCCC" }}
               >
                 <UITableCell align="left">
                   <ExpnsListEntry txn={transaction} />
-                  <Divider sx={{ marginTop: "7px" }} />
+                  <Divider sx={{ marginTop: "7px", borderColor: "#66CCCC" }} />
                 </UITableCell>
               </TableRow>
             ))}

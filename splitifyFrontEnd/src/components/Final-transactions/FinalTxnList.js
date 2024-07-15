@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
-
+import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import { AccountContext } from "../AppContext/AppContext";
 import Avatar from "@mui/material/Avatar";
 import {
   Box,
@@ -18,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const sxAvatar = { fontSize: "18px", fontWeight: "400" };
+const sxAvatar = { fontSize: "18px", fontWeight: "400", bgcolor: "#66CCCC" };
 
 export const FinalTxnList = ({ txns }) => {
   const [checked, setChecked] = useState([]);
@@ -37,29 +35,37 @@ export const FinalTxnList = ({ txns }) => {
   };
 
   return (
-    <Paper sx={{ width: "100%", marginY: "20px" }}>
-      <TableContainer sx={{ maxHeight: "51vh", overflowX: "hidden" }}>
+    <Paper
+      sx={{
+        p: "5px",
+        m: "5px",
+        border: "none",
+        bgcolor: "inherit",
+        boxShadow: "none",
+      }}
+    >
+      <TableContainer sx={{ maxHeight: "47vh", overflowX: "hidden" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableBody>
             <List>
               {txns.length ? (
-                txns?.map((txn, idx) => (
+                txns.map((txn) => (
                   <ListItem
                     key={txn.id}
                     disablePadding
-                  onClick={handleToggle(txn)}
+                    onClick={handleToggle(txn)}
                     sx={{
-                      boxShadow: "1.5px 1.5px 2px black",
-                      bgcolor: "white",
-                      borderRadius: "5px",
-                      cursor:"pointer",
+                      boxShadow: "0 0 8px #66CCCC",
+                      bgcolor: "#333",
+                      borderRadius: "10px",
                       margin: "5px",
+                      cursor: "pointer",
                     }}
                   >
                     <ListItemIcon sx={{ marginRight: "-20px" }}>
                       <Checkbox
                         edge="start"
-                        sx={{ marginLeft: "5px" }}
+                        sx={{ marginLeft: "5px", color: "#66CCCC" }}
                         checked={checked.indexOf(txn) !== -1}
                         tabIndex={-1}
                         disableRipple
@@ -90,9 +96,13 @@ export const FinalTxnList = ({ txns }) => {
                   </ListItem>
                 ))
               ) : (
-                <p style={{ padding: "10px" }}>
-                  <b>No payments</b>
-                </p>
+                <ListItem>
+                  <ListItemText>
+                    <Typography sx={{ color: "#FFFFFF", textAlign: "center" }}>
+                      <b>No payments</b>
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
               )}
             </List>
           </TableBody>

@@ -10,10 +10,9 @@ import {
 import { getOccasions, loginUser } from "../../service/api";
 import { useNavigate } from "react-router-dom";
 import { AccountContext } from "../AppContext/AppContext";
-import axios from "axios";
 
 export const Login = () => {
-  const { user, setUser, occasions, setOccasions } = useContext(AccountContext);
+  const { setUser, setOccasions } = useContext(AccountContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -28,17 +27,33 @@ export const Login = () => {
       navigate("/");
     }
   };
+
   const getOcc = async () => {
     const occRes = await getOccasions({ username });
-    console.log("login occRes", occRes);
     setOccasions(occRes);
-    console.log("login occasions", occasions);
   };
 
   return (
     <Container component="main" maxWidth="xs">
-      <Paper elevation={5} sx={{ padding: 4, borderRadius: 2, mt: 8 }}>
-        <Typography component="h1" variant="h5" align="center" gutterBottom>
+      <Paper
+        elevation={10}
+        sx={{
+          padding: 4,
+          borderRadius: 2,
+          mt: 8,
+          backgroundColor: "#000000",
+          color: "#FFFFFF",
+          border: "2px solid #66CCCC",
+          boxShadow: "0px 0px 15px #66CCCC",
+        }}
+      >
+        <Typography
+          component="h1"
+          variant="h5"
+          align="center"
+          gutterBottom
+          sx={{ color: "#FF69B4" }}
+        >
           Login
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -54,6 +69,18 @@ export const Login = () => {
             autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            sx={{
+              input: { color: "#FFFFFF" },
+              label: { color: "#66CCCC" },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#66CCCC",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FF69B4",
+                },
+              },
+            }}
           />
           <TextField
             variant="outlined"
@@ -67,13 +94,33 @@ export const Login = () => {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            sx={{
+              input: { color: "#FFFFFF" },
+              label: { color: "#66CCCC" },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#66CCCC",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FF69B4",
+                },
+              },
+            }}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="success"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{
+              mt: 3,
+              mb: 2,
+              bgcolor: "#FF69B4",
+              "&:hover": {
+                bgcolor: "#FF69B4",
+                boxShadow: "0 0 10px #FF69B4",
+              },
+            }}
           >
             Submit
           </Button>

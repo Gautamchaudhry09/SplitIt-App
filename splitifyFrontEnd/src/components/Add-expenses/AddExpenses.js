@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
@@ -8,33 +7,22 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { AccountContext } from "../AppContext/AppContext";
-import { Input } from "@mui/material";
-
-// import MuiNumberInputField from "../UI/MuiNumberInputField";
 
 export const AddExpenses = () => {
   const { friends, setFriends, transactions, setTransactions } =
     useContext(AccountContext);
-
-  // const amtInputRef = React.useRef<HTMLInputElement>(null);
-
-  const [selectedFriend, setSelectedFriend] = useState(undefined);
-  const [txnAmount, setTxnAmount] = useState(undefined);
-  const [reason, setReason] = useState();
+  const [selectedFriend, setSelectedFriend] = useState("0");
+  const [txnAmount, setTxnAmount] = useState("");
+  const [reason, setReason] = useState("");
 
   const onTxnAmountChange = (e) => {
     setTxnAmount(e.target.value);
   };
 
   const onFriendChange = (e) => {
-    const indx = parseInt(e.target.value);
-
-    if (indx !== 0) {
-      setSelectedFriend(e.target.value);
-    }
+    setSelectedFriend(e.target.value);
   };
 
   const onReasonChange = (e) => {
@@ -43,8 +31,7 @@ export const AddExpenses = () => {
 
   const onTxnSubmit = (e) => {
     e.preventDefault();
-
-    if (!selectedFriend) {
+    if (!selectedFriend || selectedFriend == "0") {
       return alert("Please select a friend");
     }
 
@@ -52,37 +39,37 @@ export const AddExpenses = () => {
       return alert("Invalid transaction amount");
     }
 
-    // addTxn(selectedFriend, {
-    //     amount: txnAmount,
-    //     reason
-    // });
-    const friend = friends.filter((frnd) => frnd.name === selectedFriend);
+    const friend = friends.find((frnd) => frnd.name === selectedFriend);
     setTransactions([
       ...transactions,
       {
-        friend: friend[0],
+        friend: friend,
         amount: Number(txnAmount),
-        reason: reason ? reason : null,
+        reason: reason || null,
       },
     ]);
     setTxnAmount("");
     setReason("");
-    // amtInputRef.current?.focus();
-    // amtInputRef.current?.select(); // it may not work on safari mobile
   };
 
   return (
-    <div>
-      <Box marginBottom=".875rem">
-        <Typography variant="h6" fontWeight="bold">
-          Add expenses
-        </Typography>
-        <Typography variant="subtitle2">
-          Select friend, input amount, and add expense
-        </Typography>
-      </Box>
+    <Box
+      sx={{
+        p: 1.2,
+        maxHeight: "175px",
+        backgroundColor: "#333",
+        borderRadius: 2,
 
-      <form onSubmit={onTxnSubmit}>
+        boxShadow: "0 0 10px #66CCCC",
+      }}
+    >
+      <Typography variant="h6" sx={{ color: "#66CCCC", fontWeight: "bold" }}>
+        Add Expenses
+      </Typography>
+      <Typography variant="subtitle2" sx={{ color: "#FFFFFF" }}>
+        Select friend, input amount, and add expense
+      </Typography>
+      <form onSubmit={onTxnSubmit} style={{ marginTop: 5 }}>
         <Grid
           container
           spacing={1}
@@ -93,28 +80,44 @@ export const AddExpenses = () => {
           <Grid item xs={7} sm={8}>
             <FormControl size="small" fullWidth>
               <TextField
-                id="demo-customized-select"
-                value={String(selectedFriend ?? "0")}
-                select={true}
+                value={selectedFriend}
+                select
                 size="small"
                 onChange={onFriendChange}
                 required
                 sx={{
-                  boxShadow: "0.8px 0.8px 3px black",
-                  bgcolor: "white",
+                  boxShadow: "0.8px 0.8px 3px #66CCCC",
+                  bgcolor: "#000000",
                   borderRadius: "10px",
+                  color: "#66CCCC",
+                }}
+                InputProps={{
+                  style: {
+                    color: "#66CCCC",
+                  },
+                }}
+                SelectProps={{
+                  MenuProps: {
+                    PaperProps: {
+                      sx: {
+                        backgroundColor: "#333333",
+                        color: "#66CCCC",
+                      },
+                    },
+                  },
                 }}
               >
-                <MenuItem value="0">
-                  <small>Friend</small>
+                <MenuItem value="0" disabled>
+                  <small>Select Friend</small>
                 </MenuItem>
                 {friends.map((friend, index) => (
-                  <MenuItem value={friend.name}>{friend.name}</MenuItem>
+                  <MenuItem key={index} value={friend.name}>
+                    {friend.name}
+                  </MenuItem>
                 ))}
               </TextField>
             </FormControl>
           </Grid>
-
           <Grid item xs={4} sm={3}>
             <FormControl fullWidth>
               <TextField
@@ -125,28 +128,32 @@ export const AddExpenses = () => {
                 required
                 autoComplete="off"
                 sx={{
-                  boxShadow: "0.8px 0.8px 3px black",
-                  bgcolor: "white",
+                  boxShadow: "0.8px 0.8px 3px #66CCCC",
+                  bgcolor: "#000000",
                   borderRadius: "10px",
+                  color: "#66CCCC",
+                }}
+                InputProps={{
+                  style: {
+                    color: "#66CFFC",
+                  },
                 }}
               />
             </FormControl>
           </Grid>
-
           <Grid item xs textAlign="center">
             <IconButton type="submit">
               <AddCircleIcon
-                color="primary"
+                color="secondary"
                 sx={{
-                  boxShadow: "0px 0px 10px black",
+                  boxShadow: "0px 0px 5px #66CCCC",
                   borderRadius: "15px",
-                  bgcolor: "#a8f1c3",
+                  // bgcolor: "#33CC33",
                 }}
               />
             </IconButton>
           </Grid>
         </Grid>
-
         <FormControl margin="dense" fullWidth>
           <TextField
             value={reason}
@@ -154,18 +161,20 @@ export const AddExpenses = () => {
             placeholder="Reason (optional)"
             type="text"
             sx={{
-              boxShadow: "0.8px 0.8px 3px black",
-              bgcolor: "white",
+              boxShadow: "0.8px 0.8px 3px #66CCCC",
+              bgcolor: "#000000",
               borderRadius: "10px",
+              color: "#66CCCC",
+            }}
+            InputProps={{
+              style: {
+                color: "#66CCCC",
+              },
             }}
             onChange={onReasonChange}
           />
         </FormControl>
       </form>
-
-      <Divider />
-
-      {/* <ExpensesList /> */}
-    </div>
+    </Box>
   );
 };

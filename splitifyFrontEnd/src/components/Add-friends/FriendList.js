@@ -16,18 +16,24 @@ const UITableCell = styled(TableCell)(({ theme }) => ({
 
 export const FriendList = () => {
   const { friends, setFriends } = useContext(AccountContext);
-  // let i=friends.length;
+
   return (
     <div>
-      <Paper sx={{ width: "100%" }}>
-        <TableContainer sx={{ maxHeight: "58vh" }}>
+      <Paper
+        sx={{
+          width: "100%",
+          bgcolor: "#222222",
+          boxShadow: "0px 0px 10px 2px #66CCCC",
+        }}
+      >
+        <TableContainer sx={{ maxHeight: "54vh" }}>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
               {friends.map((friend, index) => (
                 <TableRow hover tabIndex={-1} key={index}>
                   <UITableCell align="left">
                     <FriendListEntry key={index} friend={friend} />
-                    <Divider sx={{ marginTop: "7px" }} />
+                    <Divider sx={{ marginTop: "7px", bgcolor: "#66CCCC" }} />
                   </UITableCell>
                 </TableRow>
               ))}

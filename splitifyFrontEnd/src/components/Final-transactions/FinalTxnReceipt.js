@@ -9,7 +9,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { FinalTxnSS } from "./FinalTxnSS";
-// import { SxProps } from "@mui/material";
 
 const sxDialogBox = {
   "& .MuiDialog-container": {
@@ -19,7 +18,6 @@ const sxDialogBox = {
 
 export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
   const [imageUrl, setImageUrl] = useState();
-
   const [downloading, setDownloading] = useState(false);
 
   const downloadBlobFile = (file, filename) => {
@@ -45,7 +43,6 @@ export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
 
     if (!imageUrl) return;
 
-    // convert base64 to blob
     fetch(imageUrl).then(async (response) => {
       try {
         const blob = await response.blob();
@@ -55,7 +52,7 @@ export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
       } catch (e) {
         console.log(e);
         alert(
-          "Error occured while downloading image. Please refresh page and try again."
+          "Error occurred while downloading image. Please refresh page and try again."
         );
         setDownloading(false);
         return false;
@@ -73,26 +70,20 @@ export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
             display="flex"
             alignItems="center"
             justifyContent="space-between"
+            marginBottom="10px"
           >
             <IconButton
-              onClick={(event) => handleDownloadImage(event)}
+              onClick={handleDownloadImage}
               disabled={downloading}
+              sx={{ color: "#66CCCC" }}
             >
               <DownloadIcon />
-            </IconButton>
-            <IconButton disabled={true}>
-              <WhatsAppIcon />
-            </IconButton>
-            <IconButton disabled={true}>
-              <FacebookIcon />
             </IconButton>
           </Box>
         )}
       </DialogTitle>
-      <DialogContent dividers={true}>
-        <Box marginBottom="12px">
-          <FinalTxnSS setImageUrl={setImageUrl} />
-        </Box>
+      <DialogContent>
+        <FinalTxnSS setImageUrl={setImageUrl} />
       </DialogContent>
     </Dialog>
   );

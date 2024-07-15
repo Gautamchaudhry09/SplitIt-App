@@ -1,9 +1,6 @@
 import React, { useContext, useState } from "react";
-
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import { SxProps } from "@mui/material";
-
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -18,19 +15,14 @@ export const ExpnsListEntry = ({ txn }) => {
 
   const onTxnRemove = (e) => {
     e.preventDefault();
-
-    //   removeTxn(txn.id);
     setTransactions(transactions.filter((transaction) => transaction !== txn));
   };
 
   const startEditing = () => {
     setEditing(true);
-    // inputRef.current?.focus();
-    // inputRef.current?.select();
   };
 
   const updateExpense = (newAmount, newReason) => {
-    // updateTxn(txn, amount, reason);
     setTransactions((transactions) =>
       transactions.map((transaction) => {
         if (txn === transaction) {
@@ -79,10 +71,10 @@ export const ExpnsListEntry = ({ txn }) => {
           alignItems="center"
         >
           <IconButton onClick={() => startEditing()}>
-            <EditIcon />
+            <EditIcon sx={{ color: "#66CCCC" }} />
           </IconButton>
           <IconButton onClick={(event) => onTxnRemove(event)}>
-            <DeleteIcon />
+            <DeleteIcon sx={{ color: "#FF69B4" }} />
           </IconButton>
         </Grid>
       )}
@@ -90,7 +82,7 @@ export const ExpnsListEntry = ({ txn }) => {
       {editing && (
         <ExpnsEntryEdit
           open={editing}
-          title={`${txn.friend} paid ${txn.amount}`}
+          title={`${txn.friend.name} paid ₹${txn.amount}`}
           amount={txn.amount}
           reason={txn.reason}
           close={() => setEditing(false)}

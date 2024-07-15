@@ -9,10 +9,10 @@ export const Friends = () => {
   const { friends, setFriends } = useContext(AccountContext);
 
   return (
-    <Box>
+    <Box sx={{ m: "-5px" }}>
       <AddFriends />
 
-      <Divider sx={{ my: "1.2rem" }} />
+      <Divider sx={{ my: "1rem" }} />
 
       <FriendList />
     </Box>

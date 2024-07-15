@@ -13,6 +13,7 @@ import {
   calculate_total,
 } from "../../Helpers/SplitCalculator";
 import { FinalTxnReceipt } from "./FinalTxnReceipt";
+import { Divider } from "@mui/material";
 
 export const FinalTxns = () => {
   const { friends, transactions } = useContext(AccountContext);
@@ -34,14 +35,11 @@ export const FinalTxns = () => {
         )
       );
     } else {
-      // console.log("workking");
       setFilteredTxns(allFinalTransactions);
     }
   };
 
   useEffect(() => {
-    // console.log(transactions);
-
     const finalTransactions = SplitCalculator({
       expenses: transactions,
       friends: friends,
@@ -53,9 +51,23 @@ export const FinalTxns = () => {
 
   return (
     <>
-      <Box sx={{ margin: "20px" }}>
-        <Box display="flex" justifyContent="space-between">
-          <IconButton onClick={() => setShare(true)} disabled={share}>
+      <Box
+        sx={{
+          margin: "5px",
+          mb: "-20px",
+          bgcolor: "#000000",
+          p: 2,
+          pb: 0.5,
+          borderRadius: "8px",
+          boxShadow: "0px 0px 12px 3px #66CCCC",
+        }}
+      >
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <IconButton
+            onClick={() => setShare(true)}
+            disabled={share}
+            sx={{ color: "#66CCCC" }}
+          >
             <ShareIcon />
           </IconButton>
           <FormControl size="small">
@@ -66,16 +78,26 @@ export const FinalTxns = () => {
               onChange={onFriendChange}
               required
               sx={{
-                boxShadow: "1.5px 1.5px 5px black",
-                bgcolor: "white",
+                bgcolor: "#333333",
+                color: "#66CCCC",
+                m: "5px",
+                boxShadow: "1.5px 1.5px 5px #000000",
                 borderRadius: "10px",
+                "& .MuiInputBase-input": { color: "#66CCCC" },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#66CCCC",
+                },
               }}
             >
-              <MenuItem value="0" key={0}>
+              <MenuItem value="0" key={0} sx={{ color: "#66CCCC" }}>
                 <small>All Friends</small>
               </MenuItem>
               {friends.map((friend, index) => (
-                <MenuItem key={index + 1} value={friend.name}>
+                <MenuItem
+                  key={index + 1}
+                  value={friend.name}
+                  sx={{ color: "#66CCCC" }}
+                >
                   {friend.name}
                 </MenuItem>
               ))}
@@ -83,8 +105,9 @@ export const FinalTxns = () => {
           </FormControl>
         </Box>
         {filteredTxns && <FinalTxnList txns={filteredTxns} />}
+        <Divider sx={{ bgcolor: "#66CCCC" }} />
         {total ? (
-          <p>
+          <p style={{ color: "#66CCCC", fontSize: "18px" }}>
             Total:{" ₹"}
             <b>
               <em>{total}</em>

@@ -1,15 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AccountContext } from "../AppContext/AppContext";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
-import { SxProps } from "@mui/material";
-
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Check from "@mui/icons-material/Check";
 import Clear from "@mui/icons-material/Clear";
-
 import Avatar from "@mui/material/Avatar";
 
 const sxAvatar = { fontSize: "18px", fontWeight: "400" };
@@ -40,29 +37,33 @@ export const FriendListEntry = ({ friend }) => {
     }
 
     setFriends((friends) => {
-      const uFriends = friends.map((frnd) => {
+      return friends.map((frnd) => {
         if (frnd.name === friend.name) {
-          // if (friend !== trimmedNewName) {
-          // friend.initials = getInitialsFromName(friendName);
-          // }
-          frnd.initials = getInitials(trimmedNewName);
-          frnd.name = trimmedNewName;
+          return {
+            ...frnd,
+            name: trimmedNewName,
+            initials: getInitials(trimmedNewName),
+          };
         }
         return frnd;
       });
-      return uFriends;
     });
+
     setTransactions((transactions) => {
-      const newTransactions = transactions.map((txn) => {
+      return transactions.map((txn) => {
         if (txn.friend.name === friend.name) {
-          txn.friend.name = trimmedNewName;
+          return {
+            ...txn,
+            friend: {
+              ...txn.friend,
+              name: trimmedNewName,
+            },
+          };
         }
-        console.log(txn);
         return txn;
       });
-      return newTransactions;
     });
-    // setNewName(trimmedNewName); // change untrimmed newName as well (`   x` to `x`)
+
     setEditing(false);
   };
 
@@ -110,20 +111,25 @@ export const FriendListEntry = ({ friend }) => {
           </Avatar>
 
           {editing ? (
-            <form style={sxForm} onSubmit={handleNameSubmit}>
+            <form style={sxForm} onSubmit={(event) => handleNameSubmit(event)}>
               <TextField
                 autoFocus
-                autoComplete="false"
-                autoCapitalize="false"
-                autoCorrect="false"
                 value={newName}
                 onChange={handleNameUpdate}
                 size="small"
+                sx={{
+                  bgcolor: "#000000",
+                  color: "#66CCCC",
+                  "& .MuiInputBase-input": { color: "#66CCCC" },
+                }}
               />
-              <IconButton type="submit">
+              <IconButton type="submit" sx={{ color: "#33CC33" }}>
                 <Check />
               </IconButton>
-              <IconButton onClick={() => setEditing(false)}>
+              <IconButton
+                onClick={() => setEditing(false)}
+                sx={{ color: "#FF69B4" }}
+              >
                 <Clear />
               </IconButton>
             </form>
@@ -142,13 +148,14 @@ export const FriendListEntry = ({ friend }) => {
           container
           alignItems="center"
         >
-          <IconButton onClick={() => toggleEditting()}>
+          <IconButton onClick={toggleEditting} sx={{ color: "#66CCCC" }}>
             <EditIcon />
           </IconButton>
           <IconButton
             size="small"
-            onClick={() => onRemoveFriend()}
+            onClick={onRemoveFriend}
             aria-label="delete"
+            sx={{ color: "#FF69B4" }}
           >
             <DeleteIcon />
           </IconButton>

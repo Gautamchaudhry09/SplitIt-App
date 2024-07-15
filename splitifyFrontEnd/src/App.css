@@ -62,3 +62,34 @@ body {
 .tab-panel {
   background-color: #f6adad;
 }
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #66CCCC;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #66CCCC;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #33CC33;
+  box-shadow: 0 0 15px #33CC33;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #28A745;
+  box-shadow: 0 0 20px #28A745;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #66CCCC #000000;
+}

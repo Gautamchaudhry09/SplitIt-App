@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-
 import Grid from "@mui/material/Grid";
-
+import IconButton from "@mui/material/IconButton";
 import Check from "@mui/icons-material/Check";
 import Clear from "@mui/icons-material/Clear";
-import IconButton from "@mui/material/IconButton";
-
 import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
-
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 
 export const ExpnsEntryEdit = ({
   open,
   title,
-  paid,
   amount,
   reason,
   close,
@@ -26,39 +20,32 @@ export const ExpnsEntryEdit = ({
   const [newReason, setNewReason] = useState(reason);
 
   const onUpdatingAmt = (e) => {
-    const amt = e.target.value;
-
-    setNewAmount(amt);
+    setNewAmount(e.target.value);
   };
 
   const onReasonUpdate = (e) => {
-    const amt = e.target.value;
-
-    setNewReason(amt);
+    setNewReason(e.target.value);
   };
 
-  const onUpdateAmtCancel = (e) => {
+  const onUpdateAmtCancel = () => {
     close();
   };
 
   const onUpdateAmtSubmit = (e) => {
     e.preventDefault();
-
     if (!newAmount || newAmount <= 0) {
       return alert("Invalid amount. Please enter a valid amount.");
     }
-
     save(newAmount, newReason);
     close();
   };
 
   return (
     <Dialog open={open} onClose={close} scroll="paper" maxWidth="xs">
-      {/* <DialogTitle id="scroll-dialog-title">{title}</DialogTitle> */}
       <DialogContent>
         <form onSubmit={onUpdateAmtSubmit}>
           <Grid container alignItems="center" wrap="nowrap">
-            <Grid>
+            <Grid item xs>
               <TextField
                 value={newAmount}
                 onChange={onUpdatingAmt}
@@ -66,14 +53,24 @@ export const ExpnsEntryEdit = ({
                 autoFocus={true}
                 placeholder="Amount"
                 required
+                sx={{
+                  bgcolor: "#000000",
+                  color: "#66CCCC",
+                  boxShadow: "0.8px 0.8px 3px #66CCCC",
+                }}
+                InputProps={{
+                  style: {
+                    color: "#66CCCC",
+                  },
+                }}
               />
             </Grid>
-            <Grid>
+            <Grid item>
               <IconButton type="submit">
-                <Check />
+                <Check sx={{ color: "#33CC33" }} />
               </IconButton>
-              <IconButton onClick={() => onUpdateAmtCancel()}>
-                <Clear />
+              <IconButton onClick={onUpdateAmtCancel}>
+                <Clear sx={{ color: "#FF69B4" }} />
               </IconButton>
             </Grid>
           </Grid>
@@ -84,6 +81,16 @@ export const ExpnsEntryEdit = ({
               placeholder="Reason (optional)"
               type="text"
               onChange={onReasonUpdate}
+              sx={{
+                bgcolor: "#000000",
+                color: "#66CCCC",
+                boxShadow: "0.8px 0.8px 3px #66CCCC",
+              }}
+              InputProps={{
+                style: {
+                  color: "#66CCCC",
+                },
+              }}
             />
           </FormControl>
         </form>

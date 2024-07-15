@@ -1,14 +1,14 @@
 import React from "react";
 import { AddExpenses } from "./AddExpenses";
 import { ExpensesList } from "./ExpensesList";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 export const Expenses = () => {
   return (
-    <div>
+    <Box sx={{ m: "-5px", mb: "-23px" }}>
       <AddExpenses />
-      <Divider sx={{ my: "1.2rem" }} />
+      <Divider sx={{ my: "0.8rem" }} />
       <ExpensesList />
-    </div>
+    </Box>
   );
 };
