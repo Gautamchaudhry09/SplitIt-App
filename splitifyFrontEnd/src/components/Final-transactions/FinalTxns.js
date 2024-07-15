@@ -90,7 +90,7 @@ export const FinalTxns = () => {
               }}
             >
               <MenuItem value="0" key={0} sx={{ color: "#66CCCC" }}>
-                <small>All Friends</small>
+                All Friends
               </MenuItem>
               {friends.map((friend, index) => (
                 <MenuItem
