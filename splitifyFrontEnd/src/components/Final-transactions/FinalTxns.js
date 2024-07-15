@@ -63,13 +63,13 @@ export const FinalTxns = () => {
         }}
       >
         <Box display="flex" justifyContent="space-between" alignItems="center">
-           <IconButton
+           {/* <IconButton
             onClick={() => setShare(true)}
             disabled={share}
             sx={{ color: "#66CCCC" }}
           >
             <ShareIcon />
-          </IconButton>
+          </IconButton> */}
           <FormControl size="small">
             <TextField
               value={String(friend ?? "0")}
@@ -108,9 +108,10 @@ export const FinalTxns = () => {
         <Divider sx={{ bgcolor: "#66CCCC" }} />
         {total ? (
           <p style={{ color: "#66CCCC", fontSize: "18px" }}>
-            Total:{" ₹"}
+            Total:
             <b>
-              <em>{total}</em>
+            
+              <em style={{color:"green"}}>{" ₹"}{total}</em>
             </b>
           </p>
         ) : null}
