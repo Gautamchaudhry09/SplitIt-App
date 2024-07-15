@@ -90,6 +90,7 @@ body {
 }
 
 * {
+  color: white;
   scrollbar-width: thin;
   scrollbar-color: #66CCCC #000000;
 }
