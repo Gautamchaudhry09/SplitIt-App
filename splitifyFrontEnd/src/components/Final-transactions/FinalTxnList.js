@@ -47,6 +47,7 @@ export const FinalTxnList = ({ txns }) => {
                   <ListItem
                     key={txn.id}
                     disablePadding
+                  onClick={()=>handleToggle(txn)}
                     sx={{
                       boxShadow: "1.5px 1.5px 2px black",
                       bgcolor: "white",
