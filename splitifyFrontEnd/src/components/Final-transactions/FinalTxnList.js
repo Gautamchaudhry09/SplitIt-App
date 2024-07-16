@@ -38,7 +38,10 @@ export const FinalTxnList = ({ txns }) => {
     <Paper
       sx={{
         p: "5px",
+        pl:"0px",
+        
         m: "5px",
+        ml:"0px",
         border: "none",
         bgcolor: "inherit",
         boxShadow: "none",
@@ -59,6 +62,7 @@ export const FinalTxnList = ({ txns }) => {
                       bgcolor: "#333",
                       borderRadius: "10px",
                       margin: "5px",
+                      ml:"0px",
                       cursor: "pointer",
                     }}
                   >
