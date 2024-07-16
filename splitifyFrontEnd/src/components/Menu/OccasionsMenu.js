@@ -126,7 +126,7 @@ export const OccasionsMenu = () => {
       >
         {occasions && occasions.length === 0 ? (
           <MenuItem disableRipple>
-            <Typography>No Saved Splits :)</Typography>
+            <Typography sx={{color:"black"}}>No Saved Splits :)</Typography>
             <Divider sx={{ my: 0.5 }} />
           </MenuItem>
         ) : (
@@ -143,7 +143,7 @@ export const OccasionsMenu = () => {
             >
               <EditIcon sx={{ color: "#FF69B4", marginRight: "8px" }} />{" "}
               {/* Neon Pink icon */}
-              <Typography>{occasion.name}</Typography>
+              <Typography sx={{color:"black"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
