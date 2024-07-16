@@ -53,7 +53,8 @@ export const FinalTxns = () => {
     <>
       <Box
         sx={{
-          margin: "5px",
+          margin: "-5px",
+          mb:"5px",
           mb: "-20px",
           bgcolor: "#000000",
           p: 2,
