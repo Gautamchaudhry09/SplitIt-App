@@ -136,19 +136,21 @@ export const OccasionsMenu = () => {
               onClick={() => handleOccClick(occasion)}
               disableRipple
               sx={{
+bgcolor:"grey.300",
                 "&:hover": {
                   bgcolor: "#66CCCC", 
                 },
               }}
             >
-              <EditIcon sx={{ color: "#FF69B4", marginRight: "8px" }} />{" "}
-              {/* Neon Pink icon */}
-              <Typography sx={{color:"black"}}>{occasion.name}</Typography>
+            
+              
+              <Typography sx={{color:"#66CCCC"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
                   sx={{
-                    bgcolor: "red", 
+                    bgcolor: "black", 
+                    borderRadius:"50px",
                     "&:hover": {
                       boxShadow: "0 0 10px rgba(255, 0, 0, 0.5)",
                       transition: "box-shadow 0.3s ease-in-out",
