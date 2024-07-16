@@ -148,7 +148,7 @@ export const OccasionsMenu = () => {
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
                   sx={{
-                    color: "#FF69B4", 
+                    color: "red", 
                     "&:hover": {
                       boxShadow: "0 0 10px rgba(255, 0, 0, 0.5)",
                       transition: "box-shadow 0.3s ease-in-out",
@@ -156,7 +156,7 @@ export const OccasionsMenu = () => {
                   }}
                 />
               </Box>
-              <Divider sx={{ my: 0.5 }} />
+              <Divider sx={{ my: 0.5,color:"violet"  }} />
             </MenuItem>
           ))
         )}
