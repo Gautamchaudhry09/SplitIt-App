@@ -26,6 +26,7 @@ const StyledMenu = styled((props) => (
       horizontal: "right",
     }}
     {...props}
+
   />
 ))(({ theme }) => ({
   "& .MuiPaper-root": {
@@ -108,9 +109,9 @@ export const OccasionsMenu = () => {
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
           //bgcolor: "#FF69B4", 
-       //   color: "#000000",
+          color: "#66CCCC",
           "&:hover": {
-            bgcolor: "#FF69B4", 
+            bgcolor: "#66CCCC", 
           },
         }}
       >
@@ -121,8 +122,10 @@ export const OccasionsMenu = () => {
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
+          sx={{bgcolor:"grey.800"}}
         anchorEl={anchorEl}
         open={open}
+
         onClose={handleClose}
       >
         {occasions && occasions.length === 0 ? (
@@ -137,7 +140,7 @@ export const OccasionsMenu = () => {
               onClick={() => handleOccClick(occasion)}
               disableRipple
               sx={{
-bgcolor:"grey.700",
+bgcolor:"grey.800",
                 "&:hover": {
                   bgcolor: "#66CCCC", 
                 },
@@ -146,7 +149,7 @@ bgcolor:"grey.700",
             
               
               <Typography sx={{color:"#66CCCC", 
-              textShadow: "0 0 5px #66CCCC"}}>{occasion.name}</Typography>
+              textShadow: "0 0 4px #66CCCC"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
