@@ -103,7 +103,7 @@ export const OccasionsMenu = () => {
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        variant="contained"
+       // variant="contained"
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
