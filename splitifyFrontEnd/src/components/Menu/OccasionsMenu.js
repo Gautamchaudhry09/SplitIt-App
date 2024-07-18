@@ -49,10 +49,11 @@ const StyledMenu = styled((props) => (
         marginRight: theme.spacing(1.5),
       },
      "&:active": {
-       backgroundColor: alpha(
-         theme.palette.primary.main,
-        theme.palette.action.selectedOpacity
-        ),
+       backgroundColor: "grey.700"
+         //alpha(
+  //       theme.palette.primary.main,
+//        theme.palette.action.selectedOpacity
+     //   ),
      },
     },
   },
