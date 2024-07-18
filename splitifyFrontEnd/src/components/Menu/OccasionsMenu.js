@@ -107,8 +107,8 @@ export const OccasionsMenu = () => {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
-          bgcolor: "#FF69B4", 
-          color: "#000000",
+          //bgcolor: "#FF69B4", 
+       //   color: "#000000",
           "&:hover": {
             bgcolor: "#FF69B4", 
           },
@@ -137,7 +137,7 @@ export const OccasionsMenu = () => {
               onClick={() => handleOccClick(occasion)}
               disableRipple
               sx={{
-bgcolor:"grey.300",
+bgcolor:"grey.700",
                 "&:hover": {
                   bgcolor: "#66CCCC", 
                 },
