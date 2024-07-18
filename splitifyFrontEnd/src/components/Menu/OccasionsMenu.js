@@ -43,17 +43,17 @@ const StyledMenu = styled((props) => (
       padding: "4px 0",
     },
     "& .MuiMenuItem-root": {
+      bgcolor:"grey.800",
       "& .MuiSvgIcon-root": {
         fontSize: 18,
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
      "&:active": {
-       backgroundColor: "grey.700"
-         //alpha(
-  //       theme.palette.primary.main,
-//        theme.palette.action.selectedOpacity
-     //   ),
+       backgroundColor: alpha(
+         theme.palette.primary.main,
+      theme.palette.action.selectedOpacity
+        ),
      },
     },
   },
@@ -154,8 +154,8 @@ bgcolor:"grey.800",
             >
             
               
-              <Typography sx={{color:"#66CCCC", 
-              textShadow: "0 0 2px #66CCCC"}}>{occasion.name}</Typography>
+              <Typography sx={{color: "#FF69B4", 
+              textShadow: "0 0 2px #FF69B4"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
