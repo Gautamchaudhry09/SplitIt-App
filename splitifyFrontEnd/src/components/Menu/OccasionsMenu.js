@@ -145,7 +145,8 @@ bgcolor:"grey.300",
             >
             
               
-              <Typography sx={{color:"#66CCCC"}}>{occasion.name}</Typography>
+              <Typography sx={{color:"#66CCCC", 
+              textShadow: "0 0 5px #66CCCC"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
