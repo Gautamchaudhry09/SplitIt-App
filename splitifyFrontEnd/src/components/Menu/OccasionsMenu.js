@@ -32,6 +32,8 @@ const StyledMenu = styled((props) => (
   "& .MuiPaper-root": {
     borderRadius: 6,
     marginTop: theme.spacing(1),
+    
+          bgcolor:"grey.800",
     minWidth: 180,
     color:
       theme.palette.mode === "light"
@@ -110,6 +112,9 @@ export const OccasionsMenu = () => {
         sx={{
           //bgcolor: "#FF69B4", 
           color: "#66CCCC",
+          boxShadow: "0px 0px 3px #66CCCC",
+          border: "1.5px solid #66CCCC", 
+          
           "&:hover": {
             bgcolor: "#66CCCC", 
           },
@@ -122,7 +127,6 @@ export const OccasionsMenu = () => {
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
-          sx={{bgcolor:"grey.800"}}
         anchorEl={anchorEl}
         open={open}
 
@@ -149,7 +153,7 @@ bgcolor:"grey.800",
             
               
               <Typography sx={{color:"#66CCCC", 
-              textShadow: "0 0 4px #66CCCC"}}>{occasion.name}</Typography>
+              textShadow: "0 0 2px #66CCCC"}}>{occasion.name}</Typography>
               <Box sx={{ marginLeft: "auto", cursor: "pointer" }}>
                 <DeleteOutlineIcon
                   onClick={(event) => handleDeleteClick(event, occasion)}
