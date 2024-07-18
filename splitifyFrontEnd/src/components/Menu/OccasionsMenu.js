@@ -98,6 +98,7 @@ export const OccasionsMenu = () => {
   return (
     <div>
       <Button
+  variant="outlined"
         id="demo-customized-button"
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
