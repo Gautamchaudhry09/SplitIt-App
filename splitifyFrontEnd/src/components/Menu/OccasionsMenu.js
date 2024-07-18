@@ -115,7 +115,8 @@ export const OccasionsMenu = () => {
           
           "&:hover": {
             bgcolor: "#66CCCC", 
-              color:"",
+              color:"white",
+              textShadow:"0px 0px 2px white"
           },
         }}
       >
