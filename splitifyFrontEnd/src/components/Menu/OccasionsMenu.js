@@ -39,21 +39,21 @@ const StyledMenu = styled((props) => (
         : theme.palette.grey[300],
     boxShadow:
       "0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
-   // "& .MuiMenu-list": {
- //     padding: "0px 0",
-//    },
+   "& .MuiMenu-list": {
+      padding: "4px 0",
+    },
     "& .MuiMenuItem-root": {
       "& .MuiSvgIcon-root": {
         fontSize: 18,
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
-   //   "&:active": {
-  //      backgroundColor: alpha(
-   //       theme.palette.primary.main,
- //         theme.palette.action.selectedOpacity
-//        ),
- //     },
+     "&:active": {
+       backgroundColor: alpha(
+         theme.palette.primary.main,
+        theme.palette.action.selectedOpacity
+        ),
+     },
     },
   },
 }));
@@ -116,7 +116,8 @@ export const OccasionsMenu = () => {
           "&:hover": {
             bgcolor: "#66CCCC", 
               color:"white",
-              textShadow:"0px 0px 2px white"
+           //   textShadow:"0px 0px 2px white"
+              border: "1.5px solid #66CCCC",
           },
         }}
       >
