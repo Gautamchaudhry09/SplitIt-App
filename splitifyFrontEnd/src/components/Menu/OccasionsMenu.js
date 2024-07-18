@@ -157,7 +157,7 @@ bgcolor:"grey.800",
               <Typography 
                     sx={{
                       color: "#FF69B4", 
-                      textShadow: "0 0 3.5px black"
+                      textShadow: "0 0 1px black"
                 }}>
                    {occasion.name}
               </Typography>
