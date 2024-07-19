@@ -17,7 +17,7 @@ body {
   background-image: url('https://tse4.mm.bing.net/th?id=OIP.hVuQvs9Dh4vIZ1u9fXOc7wHaEK&pid=Api&P=0&h=180');
   height: 100%;
 /*   background-color: "grey"; */
-/*   filter: blur(4px); */
+  filter: blur(7px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
