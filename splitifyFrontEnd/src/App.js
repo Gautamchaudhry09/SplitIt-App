@@ -8,7 +8,7 @@ function App() {
   return (
     <AccountProvider>
       <Router>
-        <div className=="background">
+        <div className="background">
           <MainContainer className="main-container" />
         </div>
       </Router>
