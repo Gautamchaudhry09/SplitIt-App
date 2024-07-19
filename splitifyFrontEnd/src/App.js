@@ -7,9 +7,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <AccountProvider>
-      <div className="background"></div>
       <Router>
-        <div className="app-content">
+        <div className=="background">
           <MainContainer className="main-container" />
         </div>
       </Router>
