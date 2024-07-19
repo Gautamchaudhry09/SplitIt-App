@@ -14,10 +14,9 @@ body {
 }
 
 .background {
-  background-image: url('https://tse4.mm.bing.net/th?id=OIP.hVuQvs9Dh4vIZ1u9fXOc7wHaEK&pid=Api&P=0&h=180');
+  background-image: url('https://images.hdqwalls.com/download/digital-nature-blue-4k-g8-2560x1440.jpg');
   height: 100%;
 /*   background-color: "grey"; */
-  filter: blur(7px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
