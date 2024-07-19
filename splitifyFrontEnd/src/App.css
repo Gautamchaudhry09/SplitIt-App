@@ -17,6 +17,7 @@ body {
   /* background-image: url('https://previews.123rf.com/images/ballabeyla/ballabeyla1707/ballabeyla170700349/81705586-fruit-tree-flowers-on-white-wooden-background.jpg'); */
   /* height: 100%; */
   background-color: "grey.600";
+  filter: blur(4px);
   /* background-position: center; */
   /* background-repeat: no-repeat; */
   /* background-size: cover/; */
