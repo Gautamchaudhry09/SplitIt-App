@@ -75,9 +75,9 @@ export const FinalTxnReceipt = ({ isOpen, closeModal }) => {
             <IconButton
               onClick={handleDownloadImage}
               disabled={downloading}
-              sx={{ color: "#66CCCC" }}
+              style={{ backgroundColor: "#66CCCC" }}
             >
-              <DownloadIcon />
+              <DownloadIcon sx={{ color: "grey" }} />
             </IconButton>
           </Box>
         )}

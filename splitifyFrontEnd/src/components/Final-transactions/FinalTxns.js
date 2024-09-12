@@ -54,7 +54,7 @@ export const FinalTxns = () => {
       <Box
         sx={{
           margin: "-5px",
-          mb:"5px",
+          mb: "5px",
           mb: "-20px",
           bgcolor: "#000000",
           p: 2,
@@ -64,13 +64,13 @@ export const FinalTxns = () => {
         }}
       >
         <Box display="flex" justifyContent="space-between" alignItems="center">
-           {/* <IconButton
+          <IconButton
             onClick={() => setShare(true)}
             disabled={share}
             sx={{ color: "#66CCCC" }}
           >
             <ShareIcon />
-          </IconButton> */}
+          </IconButton>
           <FormControl size="small">
             <TextField
               value={String(friend ?? "0")}
@@ -90,14 +90,14 @@ export const FinalTxns = () => {
                 },
               }}
             >
-              <MenuItem value="0" key={0} sx={{ color: "#66CCCC" }}>
+              <MenuItem value="0" key={0} sx={{ color: "#D6866D" }}>
                 All Friends
               </MenuItem>
               {friends.map((friend, index) => (
                 <MenuItem
                   key={index + 1}
                   value={friend.name}
-                  sx={{ color: "#66CCCC" }}
+                  sx={{ color: "black" }}
                 >
                   {friend.name}
                 </MenuItem>
@@ -111,8 +111,10 @@ export const FinalTxns = () => {
           <p style={{ color: "#66CCCC", fontSize: "18px" }}>
             Total:
             <b>
-            
-              <em style={{color:"green"}}>{" ₹"}{total}</em>
+              <em style={{ color: "green" }}>
+                {" ₹"}
+                {total}
+              </em>
             </b>
           </p>
         ) : null}

@@ -59,6 +59,7 @@ export const FinalTxnSS = ({ setImageUrl }) => {
         borderBottom={1}
         fontWeight="bold"
         borderColor="text.disabled"
+        color="black"
       >
         Expenses
       </Typography>
@@ -96,18 +97,21 @@ export const FinalTxnSS = ({ setImageUrl }) => {
                       >
                         {txn.friend.initials}
                       </Avatar>
-                      <p>
-                        <b>{`${txn.friend.name} `}</b> paid:
+                      <p style={{ color: "black" }}>
+                        <b
+                          style={{ color: "black" }}
+                        >{`${txn.friend.name} `}</b>{" "}
+                        paid:
                       </p>
                     </Grid>
                   </Typography>
                   {txn.reason && (
                     <Typography>
-                      <small>({txn.reason})</small>
+                      <small style={{ color: "black" }}>({txn.reason})</small>
                     </Typography>
                   )}
                 </div>
-                <div>
+                <div style={{ color: "black" }}>
                   {"₹"} {txn.amount}
                 </div>
               </Grid>
@@ -120,6 +124,7 @@ export const FinalTxnSS = ({ setImageUrl }) => {
           width="100%"
           fontSize="small"
           mt="0.875rem"
+          color="black"
         >
           Total: {total ?? 0}
         </Typography>
@@ -128,6 +133,7 @@ export const FinalTxnSS = ({ setImageUrl }) => {
         borderBottom={1}
         fontWeight="bold"
         borderColor="text.disabled"
+        style={{ color: "black" }}
       >
         Final SPLIT Txns
       </Typography>
@@ -143,14 +149,19 @@ export const FinalTxnSS = ({ setImageUrl }) => {
                   sx={{ px: "15px" }}
                 >
                   <Typography>
-                    <p>
-                      <b> {`${txn.from_friend.name} `} </b>
+                    <p style={{ color: "black" }}>
+                      <b style={{ color: "black" }}>
+                        {" "}
+                        {`${txn.from_friend.name} `}{" "}
+                      </b>
                       {`gives`}
-                      <b>{` ${txn.to_friend.name}`}</b>
+                      <b
+                        style={{ color: "black" }}
+                      >{` ${txn.to_friend.name}`}</b>
                     </p>
                   </Typography>
 
-                  <Typography>
+                  <Typography style={{ color: "black" }}>
                     {"   ₹"}
                     {txn.amount}
                   </Typography>
@@ -161,7 +172,7 @@ export const FinalTxnSS = ({ setImageUrl }) => {
           ))}
       </CList>
       <Typography textAlign="center" marginTop="0.875rem" fontSize="small">
-        <sub>❤Made by Gautam Chaudhry</sub>
+        <sub style={{ color: "black" }}>❤Made by Gautam Chaudhry</sub>
       </Typography>
     </Wrapper>
   );
